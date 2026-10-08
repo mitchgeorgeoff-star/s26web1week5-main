@@ -1,33 +1,145 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+  background: #f3f5fb;
+  color: #1f2430;
+}
+
 .wrapper {
-	width: 800px;
-	margin: 0 auto;
+  width: 900px;
+  margin: 0 auto;
+  padding: 40px 20px 80px;
+}
+
+h1 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-size: 2.5rem;
 }
 
 .transform,
 .transition,
 .animation {
-	border: 1px solid #999;
-	margin: 20px 0;
-	padding: 0 0;
+  border: 1px solid #999;
+  margin: 20px 0;
+  padding: 20px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 8px 18px rgba(0, 0, 0, 0.06);
+}
+
+h2 {
+  margin-top: 0;
 }
 
 .box {
-	width: 200px;
-	height: 200px;
+  display: inline-block;
+  width: 120px;
+  height: 120px;
+  margin: 10px 12px 10px 0;
+  border-radius: 12px;
+  box-shadow: inset 0 0 20px rgba(255, 255, 255, 0.25);
 }
 
 .b1 {
-	background-color: #89cff0;
+  background-color: #89cff0;
 }
 
 .b2 {
-	background-color: #de5d83;
+  background-color: #de5d83;
 }
 
 .b3 {
-	background-color: #9696ff;
+  background-color: #9696ff;
 }
 
 .b4 {
-	background-color: #e89380;
+  background-color: #e89380;
+}
+
+/* CSS Transition */
+.transition .box {
+  transition-property: transform, background-color, box-shadow;
+  transition-duration: 0.5s, 0.8s, 0.5s;
+  transition-timing-function: ease-in-out;
+  transition-delay: 0.1s;
+}
+
+.transition .box:hover {
+  transform: translateY(-12px) scale(1.08);
+  background-color: #7cc8ff;
+  box-shadow: 0 12px 20px rgba(0, 0, 0, 0.18);
+}
+
+/* CSS Transform */
+.transform .box:nth-child(2) {
+  transform: rotate(15deg);
+}
+
+.transform .box:nth-child(3) {
+  transform: scale(1.15);
+}
+
+.transform .box:nth-child(4) {
+  transform: skewY(12deg);
+}
+
+.transform .box:nth-child(5) {
+  transform: translateX(18px) rotate(-12deg);
+}
+
+.transform .box:hover {
+  transform: rotate(30deg) scale(1.1);
+  transition: transform 0.45s ease;
+}
+
+/* CSS Animation */
+.animation .box {
+  animation-name: pulseBox;
+  animation-duration: 2s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.animation .box:nth-child(2) {
+  animation-delay: 0.2s;
+}
+
+.animation .box:nth-child(3) {
+  animation-delay: 0.4s;
+}
+
+.animation .box:nth-child(4) {
+  animation-delay: 0.6s;
+}
+
+.animation .box:nth-child(5) {
+  animation-delay: 0.8s;
+}
+
+@keyframes pulseBox {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.12) rotate(8deg);
+    opacity: 0.8;
+  }
+}
+
+@media (max-width: 900px) {
+  .wrapper {
+    width: 90%;
+  }
+
+  .box {
+    width: 100px;
+    height: 100px;
+  }
 }
