@@ -1,0 +1,102 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: linear-gradient(135deg, #f5f7ff, #dfe9ff);
+    color: #1d1d1d;
+}
+
+.wrapper {
+    max-width: 1100px;
+    margin: 40px auto;
+    padding: 24px;
+    background: rgba(255, 255, 255, 0.7);
+    border-radius: 18px;
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.08);
+}
+
+h1 {
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: clamp(2rem, 3vw, 3rem);
+    animation: pulse 2s ease-in-out infinite;
+}
+
+h2 {
+    margin-top: 0;
+}
+
+section {
+    margin-bottom: 30px;
+    padding: 20px;
+    background: rgba(255, 255, 255, 0.5);
+    border-radius: 12px;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    margin: 20px;
+    display: inline-block;
+    background: linear-gradient(135deg, #6c8ef5, #4b66d6);
+    border-radius: 12px;
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.12);
+}
+
+.transition .b1 { transition: transform 0.3s ease; }
+.transition .b1:hover { transform: scale(1.1); }
+
+.transition .b2 { transition: background-color 0.3s ease; }
+.transition .b2:hover { background-color: #ff7f50; }
+
+.transition .b3 { transition: all 0.3s ease; }
+.transition .b3:hover { transform: rotate(45deg); }
+
+.transition .b4 { transition: box-shadow 0.3s ease; }
+.transition .b4:hover { box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3); }
+
+.transform .b1 { transform: rotate(20deg); }
+.transform .b2 { transform: scale(1.2); }
+.transform .b3 { transform: skew(10deg); }
+.transform .b4 { transform: translateX(30px) rotate(-15deg); }
+
+.animation .b1 { animation: spin 3s linear infinite; }
+.animation .b2 { animation: bounce 1.5s ease-in-out infinite; }
+.animation .b3 { animation: slide 2s ease-in-out infinite; }
+.animation .b4 { animation: colorShift 4s ease-in-out infinite; }
+
+@keyframes spin {
+    from { transform: rotate(0deg); }
+    to { transform: rotate(360deg); }
+}
+
+@keyframes bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-30px); }
+}
+
+@keyframes slide {
+    0%, 100% { transform: translateX(0); }
+    50% { transform: translateX(50px); }
+}
+
+@keyframes colorShift {
+    0% { background: linear-gradient(135deg, #6c8ef5, #4b66d6); }
+    33% { background: linear-gradient(135deg, #ff7f50, #ffb347); }
+    66% { background: linear-gradient(135deg, #2ec4b6, #1f9d8f); }
+    100% { background: linear-gradient(135deg, #6c8ef5, #4b66d6); }
+}
+
+@keyframes pulse {
+    0%, 100% { transform: scale(1); }
+    50% { transform: scale(1.04); }
+}
+
+@media (max-width: 700px) {
+    section {
+        text-align: center;
+    }
+}
